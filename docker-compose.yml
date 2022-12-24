@@ -38,11 +38,15 @@ services:
       JASMIN_MONGO_LOGGER_LOG_LEVEL: ${JASMIN_MONGO_LOGGER_LOG_LEVEL:-INFO}
 
 networks:
+  # https://github.com/BlackOrder/jasmin-core-docker-service
   jasmin-core_jasmin_subnet:
     external: true
+  # https://github.com/BlackOrder/jasmin-core-docker-service
   jasmin-core_rabbitmq_subnet:
     external: true
+  # https://github.com/BlackOrder/jasmin-core-docker-service
   jasmin-core_redis_subnet:
     external: true
+  # https://github.com/BlackOrder/mongo-cluster
   mongo-cluster_cluster_subnet:
     external: true
