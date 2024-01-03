@@ -2,8 +2,9 @@ version: "3"
 name: jasmin-mongo
 services:
   configuration:
-    image: blackorder/jasmin-mongo-configuration:vdev
+    image: blackorder/jasmin-mongo-configuration:latest
     restart: always
+    hostname: configuration
     networks:
       - jasmin-core_jasmin_subnet
       - mongo-cluster_cluster_subnet
@@ -24,8 +25,9 @@ services:
       JASMIN_MONGO_CONFIGURATION_LOG_LEVEL: ${JASMIN_MONGO_CONFIGURATION_LOG_LEVEL:-INFO}
 
   logger:
-    image: blackorder/jasmin-mongo-logger
+    image: blackorder/jasmin-mongo-logger:latest
     restart: always
+    hostname: logger
     networks:
       - jasmin-core_rabbitmq_subnet
       - mongo-cluster_cluster_subnet
