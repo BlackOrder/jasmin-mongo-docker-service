@@ -8,6 +8,7 @@ services:
     networks:
       - jasmin-core_jasmin_subnet
       - mongo-cluster_cluster_subnet
+      - development
     environment:
       JASMIN_CLI_HOST: ${JASMIN_CLI_HOST:-jasmin}
       JASMIN_CLI_PORT: ${JASMIN_CLI_PORT:-8990}
@@ -31,6 +32,7 @@ services:
     networks:
       - jasmin-core_rabbitmq_subnet
       - mongo-cluster_cluster_subnet
+      - development
     environment:
       AMQP_BROKER_HOST: ${AMQP_BROKER_HOST:-rabbit-mq}
       AMQP_BROKER_PORT: ${AMQP_BROKER_PORT:-5672}
@@ -41,6 +43,8 @@ services:
       JASMIN_MONGO_LOGGER_LOG_LEVEL: ${JASMIN_MONGO_LOGGER_LOG_LEVEL:-INFO}
 
 networks:
+  development:
+    external: true
   # https://github.com/BlackOrder/jasmin-core-docker-service
   jasmin-core_jasmin_subnet:
     external: true
